@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="es.redmetro.dam2.vo.Color" table="t_color">
+        <id name="codigoColor" type="java.lang.Integer" column="cod_color">
+            <generator class="identity" />
+        </id>
+
+        <property name="nombre" column="nombre" type="java.lang.String"/>
+        <property name="codigoHexadecimal" column="cod_hexadecimal" type="java.lang.Integer"/>
+       	
+       	 <one-to-one 
+         class="es.redmetro.dam2.vo.Linea"
+         name="color"
+		cascade="save-update"></one-to-one>
+    </class>
+</hibernate-mapping>
